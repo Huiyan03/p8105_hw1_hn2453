@@ -6,14 +6,17 @@ output: github_document
 ---
 ```{r}
 library(ggplot2)
+library(tidyverse)
 ```
 
-Import data from package palmerpenguins
+#Problem 1
+
+##Import data from package palmerpenguins.
 ```{r}
 data("penguins", package = "palmerpenguins")
 ```
 
-Description of the penguins dataset 
+##Description of the penguins dataset.
 
 ```{r}
 head(penguins)
@@ -30,9 +33,32 @@ Penguins dataset have `r pen_rows` rows and `r pen_cols` columns.
 
 The mean flipper length is `r mean_flipper_length` mm. 
 
-Make scatterplots
+##Make scatterplot between bill_length_mm(x) and flipper_length_mm(y) and save the output plot.
 ```{r warning=FALSE}
-ggplot(penguins,aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
+plot1 <- ggplot(penguins,aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
+
+plot1
+
+ggsave("scatterplot1.pdf",plot = plot1)
 ```
+
+#Problem 2
+
+##create the required data frame
+```{r}
+set.seed(1)
+
+plot_df = tibble(
+  x = rnorm(n=10),
+  vec_x = x > 0,
+  cha_vec = rep("sample",10),
+  fac_vec = factor(sample(c("one","two","three"), 10, replace = TRUE))
+  
+)
+
+plot_df
+
+```
+
 
 
