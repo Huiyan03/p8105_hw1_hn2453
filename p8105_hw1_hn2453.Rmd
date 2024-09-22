@@ -4,6 +4,9 @@ author: Huiyan Ni
 date: 2024-09-21
 output: github_document
 ---
+```{r}
+library(ggplot2)
+```
 
 Import data from package palmerpenguins
 ```{r}
@@ -26,4 +29,10 @@ From previous information, we can get penguins dataset have 8 variables: `r pen_
 Penguins dataset have `r pen_rows` rows and `r pen_cols` columns. 
 
 The mean flipper length is `r mean_flipper_length` mm. 
+
+Make scatterplots
+```{r warning=FALSE}
+ggplot(penguins,aes(x = bill_length_mm, y = flipper_length_mm, color=species)) + geom_point()
+```
+
 
