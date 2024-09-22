@@ -1,0 +1,12 @@
+---
+title: "p8105_hw1_hn2453"
+author: Huiyan Ni
+date: 2024-09-21
+output: github_document
+---
+
+
+```{r}
+
+```
+
